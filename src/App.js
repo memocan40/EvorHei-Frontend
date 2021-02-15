@@ -24,6 +24,7 @@ function App() {
     
   })
   
+  const DeleteAll=()=>{setHistory([])};
 
   return (
     <div className="App">
@@ -55,6 +56,7 @@ function App() {
   <button onClick={()=>{
     
     History.push(MyArray)}} >Save</button>
+    <button onClick={DeleteAll}>Clear All</button>
 </div>
 
 <div className="History">
