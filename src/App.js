@@ -12,7 +12,7 @@ function App() {
   let[History,setHistory]=useState([]);
 
   useEffect(()=>{
-    setResult("Produkt="+DropdownValue+" / Chargenummer="+Chargenumber);
+    setResult("Produkt="+DropdownResult+" / Chargenummer="+Chargenumber);
     setMyArray([Result]);
   })
   
