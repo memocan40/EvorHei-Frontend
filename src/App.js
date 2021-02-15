@@ -44,10 +44,10 @@ function App() {
 </div>
 
 <div className="Inputs">
-  <label  for="Chargenummer">Charge.Nr</label>
+  <label  for="Chargenummer">Charge.Nr:</label>
   <input type="text" id="Chargenummer" name="Chargenummer" onChange={(event)=>{setChargenumber(event.target.value)}}></input>
 
-  <label for="Menge">Menge</label>
+  <label for="Menge">Menge:</label>
   <input type="number" id="Menge" name="Menge" onChange={(event)=>{setMengennummer(event.target.value)}}></input>
 </div>
 
@@ -58,6 +58,7 @@ function App() {
 </div>
 
 <div className="History">
+<h3>Material erfassungs-Liste</h3>
 <Results  Param={History} />
   
   

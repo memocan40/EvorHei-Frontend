@@ -16,8 +16,9 @@ label{
 }
 
 .Button{
-  float:right;
-  margin-right:5px;
+  
+  float: right;
+  right:10px;
   border-radius:10px;
 }
 
