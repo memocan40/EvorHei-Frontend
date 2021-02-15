@@ -7,7 +7,6 @@ function App() {
   let[DropdownResult,setDropdownResult]=useState();
   let[Chargenumber,setChargenumber]=useState();
   let[Mengennummer,setMengennummer]=useState();
-  let[Nummerarray,setNummerarray]=useState([]);
   let[MyArray,setMyArray]=useState([]);
   let[Result,setResult]=useState();
   let[History,setHistory]=useState([]);
@@ -32,6 +31,8 @@ function App() {
 
 
 <div className="Dropdown">
+
+
 <label for="Products" className="Label">Material</label>
 <select className="dropdown" name="Products" id="Products" onChange={(event)=>{setDropdownValue(event.target.value)}}>
   <option value=""></option>
@@ -52,7 +53,7 @@ function App() {
 
 <div className="Save">
   <button onClick={()=>{
-    Nummerarray.push(Mengennummer);
+    
     History.push(MyArray)}} >Save</button>
 </div>
 
