@@ -1,7 +1,10 @@
 import "./Result.css";
 
 export default function Results({Param}){
-const ClickHandler=(event)=>{event.target.parentNode.parentNode.remove()};
+const ClickHandler=(event)=>{
+    
+    event.target.parentNode.parentNode.remove();
+}
 
 return(
 <div>

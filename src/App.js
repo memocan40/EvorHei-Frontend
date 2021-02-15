@@ -24,7 +24,9 @@ function App() {
     
   })
   
-  const DeleteAll=()=>{setHistory([])};
+  const DeleteAll=(e)=>{
+  setHistory([]);
+window.location.reload();}
 
   return (
     <div className="App">
