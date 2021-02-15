@@ -1,3 +1,6 @@
+body{background-color: rgba(73, 69, 69, 0.514);
+}
+
 .App {
   display:flex;
   justify-content:center;
@@ -16,4 +19,34 @@ label{
   float:right;
   margin-right:5px;
   border-radius:10px;
+}
+
+.Dropdown{
+  
+  padding:1em;
+
+}
+
+.dropdown{
+  width:10em;
+  border-radius:10px;
+  
+}
+
+.Inputs{
+  padding:1em;
+    
+}
+
+button{
+  border-radius:5px;
+}
+
+#Chargenummer{
+border-radius:10px;
+
+}
+
+#Menge{
+border-radius:10px;
 }

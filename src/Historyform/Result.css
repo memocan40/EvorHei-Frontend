@@ -1,8 +1,9 @@
 .Input{
     
-    border: solid 1px;
+    border: solid 2px black;
     border-radius:5px;
-    color:red;
-    max-width:50em;
+    color:rgb(54, 53, 53);
+    max-width:60em;
+    text-align: left;
 }
 

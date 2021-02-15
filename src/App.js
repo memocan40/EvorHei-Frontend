@@ -13,7 +13,13 @@ function App() {
   let[History,setHistory]=useState([]);
 
   useEffect(()=>{
-    setResult("Produkt="+DropdownResult+"    / Chargenummer= "+Chargenumber+"    Menge="+Mengennummer);
+
+    if(DropdownResult===undefined){
+      setDropdownResult("Kein Produkt gewählt!")}
+      else if(Chargenumber===undefined){setChargenumber("Keine Chargenummer gewählt!")}
+      else if(Mengennummer===undefined){setMengennummer("Keine Menge gewählt!")}
+    
+    setResult("||Produkt="+DropdownResult+" ||    Chargenummer= "+Chargenumber+"  ||  Menge="+Mengennummer+"||");
     setMyArray([Result]);
     
     
@@ -27,7 +33,7 @@ function App() {
 
 <div className="Dropdown">
 <label for="Products" className="Label">Material</label>
-<select name="Products" id="Products" onChange={(event)=>{setDropdownValue(event.target.value)}}>
+<select className="dropdown" name="Products" id="Products" onChange={(event)=>{setDropdownValue(event.target.value)}}>
   <option value=""></option>
   <option value="Reifen">Reifen</option>
   <option value="Motor">Motor</option>
