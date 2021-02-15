@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-    <div className="Header">Material erfassung Mobile</div>
+    <div className="Header">Material erfassung Mobile
 
 
 <div className="Dropdown">
@@ -57,7 +57,7 @@ function App() {
     
     History.push(MyArray)}} >Save</button>
     <button onClick={DeleteAll}>Clear All</button>
-</div>
+</div></div>
 
 <div className="History">
 <h3>Material erfassungs-Liste</h3>
