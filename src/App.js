@@ -7,13 +7,16 @@ function App() {
   let[DropdownResult,setDropdownResult]=useState();
   let[Chargenumber,setChargenumber]=useState();
   let[Mengennummer,setMengennummer]=useState();
+  let[Nummerarray,setNummerarray]=useState([]);
   let[MyArray,setMyArray]=useState([]);
   let[Result,setResult]=useState();
   let[History,setHistory]=useState([]);
 
   useEffect(()=>{
-    setResult("Produkt="+DropdownResult+" / Chargenummer="+Chargenumber);
+    setResult("Produkt="+DropdownResult+"    / Chargenummer= "+Chargenumber+"    Menge="+Mengennummer);
     setMyArray([Result]);
+    
+    
   })
   
 
@@ -34,21 +37,21 @@ function App() {
 </div>
 
 <div className="Inputs">
-  <label for="Chargenummer">Charge.Nr</label>
+  <label  for="Chargenummer">Charge.Nr</label>
   <input type="text" id="Chargenummer" name="Chargenummer" onChange={(event)=>{setChargenumber(event.target.value)}}></input>
 
   <label for="Menge">Menge</label>
-  <input type="text" id="Menge" name="Menge" onChange={(event)=>{setMengennummer(event.target.value)}}></input>
+  <input type="number" id="Menge" name="Menge" onChange={(event)=>{setMengennummer(event.target.value)}}></input>
 </div>
 
 <div className="Save">
   <button onClick={()=>{
-    
+    Nummerarray.push(Mengennummer);
     History.push(MyArray)}} >Save</button>
 </div>
 
 <div className="History">
-<Results  Param={History} Menge={Mengennummer}/>
+<Results  Param={History} />
   
   
 </div>

@@ -1,5 +1,19 @@
 .App {
-  text-align: center;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
 }
 
-.Label{display:block;}
+.Label{display:block;
+  opacity: 0.4;
+}
+label{
+  opacity:0.4;
+}
+
+.Button{
+  float:right;
+  margin-right:5px;
+  border-radius:10px;
+}
