@@ -1,8 +1,16 @@
 import{useState,useEffect} from "react";
 import './App.css';
 import Results from "./Historyform/Results"
+import axios from "axios";
+
+
 
 function App() {
+axios.get("https://radiant-peak-90735.herokuapp.com/").then((res)=>{console.log(res)})
+
+
+
+  //UseStates
   let[DropdownValue,setDropdownValue]=useState();
   let[DropdownResult,setDropdownResult]=useState();
   let[Chargenumber,setChargenumber]=useState();
@@ -11,6 +19,12 @@ function App() {
   let[Result,setResult]=useState();
   let[History,setHistory]=useState([]);
 
+  //Zeitstempel
+
+  let time=new Date();
+  let hours=time.getHours();
+  let minutes=time.getMinutes();
+
   useEffect(()=>{
 
     if(DropdownResult===undefined){
@@ -18,7 +32,7 @@ function App() {
       else if(Chargenumber===undefined){setChargenumber("Keine Chargenummer gewählt!")}
       else if(Mengennummer===undefined){setMengennummer("Keine Menge gewählt!")}
     
-    setResult("||Produkt="+DropdownResult+" ||    Chargenummer= "+Chargenumber+"  ||  Menge="+Mengennummer+"||");
+    setResult("||Produkt="+DropdownResult+" ||    Chargenummer= "+Chargenumber+"  ||  Menge="+Mengennummer+"||"+"Zeit:"+hours+":"+minutes+"||");
     setMyArray([Result]);
     
     
