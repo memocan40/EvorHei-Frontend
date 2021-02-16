@@ -6,6 +6,7 @@ import axios from "axios";
 
 
 function App() {
+ 
 axios.get("https://radiant-peak-90735.herokuapp.com/").then((res)=>{console.log(res)})
 
 
@@ -19,13 +20,15 @@ axios.get("https://radiant-peak-90735.herokuapp.com/").then((res)=>{console.log(
   let[Result,setResult]=useState();
   let[History,setHistory]=useState([]);
 
+  axios.post("https://radiant-peak-90735.herokuapp.com/data",{data:"hello"}).then((res)=>{console.log(res)});
+
   //Zeitstempel
 
   let time=new Date();
   let hours=time.getHours();
   let minutes=time.getMinutes();
 
-  useEffect(()=>{
+  const update=()=>{
 
     if(DropdownResult===undefined){
       setDropdownResult("Kein Produkt gewählt!")}
@@ -36,7 +39,7 @@ axios.get("https://radiant-peak-90735.herokuapp.com/").then((res)=>{console.log(
     setMyArray([Result]);
     
     
-  })
+  }
   
   const DeleteAll=(e)=>{
   setHistory([]);
@@ -69,9 +72,7 @@ window.location.reload();}
 </div>
 
 <div className="Save">
-  <button onClick={()=>{
-    
-    History.push(MyArray)}} >Save</button>
+  <button onMouseMove={update} onClick={()=>{History.push(MyArray)}} >Save</button>
     <button onClick={DeleteAll}>Clear All</button>
 </div></div>
 
