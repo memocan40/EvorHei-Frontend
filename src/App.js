@@ -1,4 +1,4 @@
-import{useState,useEffect} from "react";
+import{useState} from "react";
 import './App.css';
 import Results from "./Historyform/Results"
 import axios from "axios";
@@ -32,25 +32,31 @@ axios.get("https://radiant-peak-90735.herokuapp.com/").then((res)=>{console.log(
   let hours=time.getHours();
   let minutes=time.getMinutes();
 
+
+  //Funktionen
+
+  const save=()=>{History.push(MyArray);
+    axios.post("https://radiant-peak-90735.herokuapp.com/data",data).then((res)=>{console.log(res)});}
+
   const update=()=>{
 
-    if(DropdownResult===undefined){
+    if(DropdownResult===undefined||DropdownResult===""){
       setDropdownResult("Kein Produkt gewählt!")}
-      else if(Chargenumber===undefined){setChargenumber("Keine Chargenummer gewählt!")}
-      else if(Mengennummer===undefined){setMengennummer("Keine Menge gewählt!")}
+      if(Chargenumber===undefined||Chargenumber===""){setChargenumber("Keine Chargenummer gewählt!")}
+      if(Mengennummer===undefined||Mengennummer===""){setMengennummer("Keine Menge gewählt!")}
     
     setResult("||Produkt="+DropdownResult+" ||    Chargenummer= "+Chargenumber+"  ||  Menge="+Mengennummer+"||"+"Zeit:"+hours+":"+minutes+"||");
     setMyArray([Result]);
-    
-    
   }
   
   const DeleteAll=(e)=>{
   setHistory([]);
 window.location.reload();}
 
+
+
   return (
-    <div className="App">
+    <div className="App"  onMouseOver={update} >
     <div className="Header">Material erfassung Mobile
 
 
@@ -76,7 +82,7 @@ window.location.reload();}
 </div>
 
 <div className="Save">
-  <button onMouseMove={update} onClick={()=>{History.push(MyArray);axios.post("https://radiant-peak-90735.herokuapp.com/data",data).then((res)=>{console.log(res)});}} >Save</button>
+  <button onMouseDown={save} onClick={update} >Save</button>
     <button onClick={DeleteAll}>Clear All</button>
 </div></div>
 
