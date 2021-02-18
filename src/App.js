@@ -62,6 +62,13 @@ const Clear=()=>{
   document.querySelector("#Products").value="";
 }
 
+const auswahl=()=>{
+  document.querySelector("#auswahl").innerHTML="Produkt gewählt!";
+  setTimeout(() => {
+    document.querySelector("#auswahl").innerHTML="Wählen sie ihr Produkt"
+  }, 2000);
+}
+
 
   return (
     <div className="App"  onMouseOver={update} >
@@ -71,14 +78,15 @@ const Clear=()=>{
 <div className="Dropdown">
 
 
-<label for="Products" className="Label">Material</label>
+<label for="Products" className="Label" id="auswahl"> Wählen sie ihr Produkt</label>
 <select className="dropdown" name="Products" id="Products" onChange={(event)=>{setDropdownValue(event.target.value)}}>
   <option value=""></option>
   <option value="Reifen">Reifen</option>
   <option value="Motor">Motor</option>
   <option value="Felge">Felge</option>
 </select>
-<button onClick={()=>{setDropdownResult(DropdownValue)}} >&#10003;</button>
+
+<button onClick={()=>{setDropdownResult(DropdownValue)}}  onMouseDown={auswahl}>&#10003;</button>
 
 </div>
 
