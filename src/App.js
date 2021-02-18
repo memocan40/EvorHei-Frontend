@@ -11,17 +11,17 @@ axios.get("https://radiant-peak-90735.herokuapp.com/").then((res)=>{console.log(
 
 
 
-  //UseStates
+  //UseStates for inputs
   let[DropdownValue,setDropdownValue]=useState();
   let[DropdownResult,setDropdownResult]=useState();
   let[Chargenumber,setChargenumber]=useState();
   let[Mengennummer,setMengennummer]=useState();
-
+//Usestates for handling the data in the list
   let[MyArray,setMyArray]=useState([]);
   let[Result,setResult]=useState();
   let[History,setHistory]=useState([]);
   
-
+//data to send in database
   let data={data:Result};
   
 
