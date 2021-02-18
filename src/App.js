@@ -16,6 +16,7 @@ axios.get("https://radiant-peak-90735.herokuapp.com/").then((res)=>{console.log(
   let[DropdownResult,setDropdownResult]=useState();
   let[Chargenumber,setChargenumber]=useState();
   let[Mengennummer,setMengennummer]=useState();
+
   let[MyArray,setMyArray]=useState([]);
   let[Result,setResult]=useState();
   let[History,setHistory]=useState([]);
@@ -29,6 +30,8 @@ axios.get("https://radiant-peak-90735.herokuapp.com/").then((res)=>{console.log(
   //Zeitstempel
 
   let time=new Date();
+  let date=time.getDate();
+  let day=time.getDay();
   let hours=time.getHours();
   let minutes=time.getMinutes();
 
@@ -45,7 +48,7 @@ axios.get("https://radiant-peak-90735.herokuapp.com/").then((res)=>{console.log(
       if(Chargenumber===undefined||Chargenumber===""){setChargenumber("Keine Chargenummer gewählt!")}
       if(Mengennummer===undefined||Mengennummer===""){setMengennummer("Keine Menge gewählt!")}
     
-    setResult("||Produkt="+DropdownResult+" ||    Chargenummer= "+Chargenumber+"  ||  Menge="+Mengennummer+"||"+"Zeit:"+hours+":"+minutes+"||");
+    setResult("||Produkt="+DropdownResult+" ||    Chargenummer= "+Chargenumber+"  ||  Menge="+Mengennummer+"||"+"Datum:"+date+"."+day+" "+"Zeit="+hours+":"+minutes+"||");
     setMyArray([Result]);
   }
   
@@ -53,6 +56,11 @@ axios.get("https://radiant-peak-90735.herokuapp.com/").then((res)=>{console.log(
   setHistory([]);
 window.location.reload();}
 
+const Clear=()=>{
+  document.querySelector("#Menge").value="";
+  document.querySelector("#Chargenummer").value="";
+  document.querySelector("#Products").value="";
+}
 
 
   return (
@@ -71,11 +79,12 @@ window.location.reload();}
   <option value="Felge">Felge</option>
 </select>
 <button onClick={()=>{setDropdownResult(DropdownValue)}} >&#10003;</button>
+
 </div>
 
 <div className="Inputs">
   <label  for="Chargenummer">Charge.Nr:</label>
-  <input type="text" id="Chargenummer" name="Chargenummer" onChange={(event)=>{setChargenumber(event.target.value)}}></input>
+  <input type="text" id="Chargenummer" name="Chargenummer"  onChange={(event)=>{setChargenumber(event.target.value)}}></input>
 
   <label for="Menge">Menge:</label>
   <input type="number" id="Menge" name="Menge" onChange={(event)=>{setMengennummer(event.target.value)}}></input>
@@ -83,11 +92,12 @@ window.location.reload();}
 
 <div className="Save">
   <button onMouseDown={save} onClick={update} >Save</button>
-    <button onClick={DeleteAll}>Clear All</button>
+  <button onClick={Clear}>Clear</button>
+    
 </div></div>
 
 <div className="History">
-<h3>Material erfassungs-Liste</h3>
+<h3>Material erfassungs-Liste    <button className="Clearall" onClick={DeleteAll}>Clear List</button></h3>
 <Results  Param={History} />
   
   
